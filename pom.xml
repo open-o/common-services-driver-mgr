@@ -22,7 +22,7 @@
         <artifactId>common-setting</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>org.openo.drivermanagerservice</groupId>
+    <groupId>org.openo.common-services.driver-mgr</groupId>
     <artifactId>drivermanager-service-root</artifactId>
 
     <name>DriverManagerServiceRoot</name>

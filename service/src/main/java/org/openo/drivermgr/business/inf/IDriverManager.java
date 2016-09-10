@@ -14,53 +14,70 @@
  * limitations under the License.
  */
 
-package org.openo.drivermgr.service.inf;
+package org.openo.drivermgr.business.inf;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
+import org.openo.drivermgr.entity.DriverInstance;
+import org.openo.drivermgr.entity.DriverProperties;
 
 /**
- * Interfaces to operated for Driver Manager.
+ * An interface layer for the manager implementation of Manager Layer.
  * <br/>
  * 
  * @author
  * @version  
  */
-public interface IDriverManagerDelegate {
+public interface IDriverManager {
 
     /**
      * 
      * <br/>
      * 
-     * @param request
-     * @param response
-     * @since   
-     */
-    void register(HttpServletRequest request, HttpServletResponse response);
-
-    /**
-     * 
-     * <br/>
-     * 
-     * @param request
-     * @param response
-     * @param instanceId
-     * @since   
-     */
-    void unregister(HttpServletRequest request, HttpServletResponse response, String instanceId);
-
-    /**
-     * 
-     * <br/>
-     * 
-     * @param request
-     * @param response
-     * @param serviceUrl
-     * @param systemId
+     * @param driver
      * @return
      * @since   
      */
-    String getDriverDetails(HttpServletRequest request, HttpServletResponse response, String serviceUrl,
-            String systemId);
+    boolean registerDriver(DriverProperties driver);
+
+    /**
+     * 
+     * <br/>
+     * 
+     * @param id
+     * @return
+     * @since   
+     */
+    boolean unregisterDriver(String id);
+
+    /**
+     * 
+     * <br/>
+     * 
+     * @param instanceId
+     * @return
+     * @since   
+     */
+    Object getDriverByInstanceId(String instanceId);
+
+    /**
+     * 
+     * <br/>
+     * 
+     * @param serviceUrl
+     * @param type
+     * @param version
+     * @return
+     * @since   
+     */
+    String getDriverInfo(String serviceUrl, String type, String version);
+
+    /**
+     * 
+     * <br/>
+     * 
+     * @return
+     * @since   
+     */
+    List<DriverInstance> getAllDriverInstance();
 }

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,18 +18,20 @@ package org.openo.drivermgr.entity;
 
 import java.util.List;
 
+import org.openo.drivermgr.common.CommonUtil;
+
 /**
  * POJO For Driver Manager Service.
  * <br/>
  * 
- * @author Shubham Verma
- * @version SDNO 0.5
+ * @author
+ * @version  
  */
 public class DriverInfo {
 
     private String driverName;
 
-    private String instanceId;
+    private String instanceID;
 
     private String ip;
 
@@ -56,15 +58,15 @@ public class DriverInfo {
     /**
      * @return Returns the instanceId.
      */
-    public String getInstanceId() {
-        return instanceId;
+    public String getInstanceID() {
+        return instanceID;
     }
 
     /**
      * @param instanceId The instanceId to set.
      */
-    public void setInstanceId(String instanceId) {
-        this.instanceId = instanceId;
+    public void setInstanceID(String instanceId) {
+        this.instanceID = instanceId;
     }
 
     /**
@@ -121,6 +123,32 @@ public class DriverInfo {
      */
     public void setServices(List<Services> services) {
         this.services = services;
+    }
+    
+
+    
+    /**
+     * 
+     * <br/>
+     * 
+     * @return
+     * @since   
+     */
+    public DriverInstance toDriverInstance() {
+        
+        DriverInstance driverInstance = new DriverInstance();
+        
+        driverInstance.setInstanceId(this.getInstanceID());
+        
+        driverInstance.setDriverName(this.getDriverName());
+        
+        String modelJson = CommonUtil.getInstance().driverInfoJson(this);
+        
+        driverInstance.setModel(modelJson);
+        
+        driverInstance.setExtendInfo("");
+        
+        return driverInstance;
     }
 
 }

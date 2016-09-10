@@ -13,49 +13,64 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.openo.drivermgr.entity;
 
 /**
- * POJO For Driver Manager Service.
+ * 
  * <br/>
+ * <p>
+ * </p>
  * 
  * @author
- * @version  
+ * @version   
  */
-
-public class DriverJsonMapper {
+public class DriverInstance {
 
     private String instanceId;
+    
+    private String driverName;
+    
+    private String model;
+    
+    private String extendInfo;
 
-    private String driverJson;
-
-    /**
-     * @return Returns the instanceId.
-     */
+    
     public String getInstanceId() {
         return instanceId;
     }
 
-    /**
-     * @param instanceId The instanceId to set.
-     */
+    
     public void setInstanceId(String instanceId) {
         this.instanceId = instanceId;
     }
 
-    /**
-     * @return Returns the driverJson.
-     */
-    public String getDriverJson() {
-        return driverJson;
+    
+    public String getDriverName() {
+        return driverName;
     }
 
-    /**
-     * @param driverJson The driverJson to set.
-     */
-    public void setDriverJson(String driverJson) {
-        this.driverJson = driverJson;
+    
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
     }
 
+    
+    public String getModel() {
+        return model;
+    }
+
+    
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    
+    public String getExtendInfo() {
+        return extendInfo;
+    }
+
+    
+    public void setExtendInfo(String extendInfo) {
+        this.extendInfo = extendInfo;
+    }
 }

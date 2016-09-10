@@ -17,45 +17,36 @@
 package org.openo.drivermgr.entity;
 
 /**
- * POJO For Driver Manager Service.
+ * 
  * <br/>
+ * <p>
+ * </p>
  * 
  * @author
- * @version  
+ * @version   
  */
-
-public class DriverJsonMapper {
-
-    private String instanceId;
-
-    private String driverJson;
-
+public class DriverUrl {
+    
+    private String url;
+    
     /**
-     * @return Returns the instanceId.
+     * 
+     * Constructor<br/>
+     * <p>
+     * </p>
+     * 
+     * @param url
+     * @since   
      */
-    public String getInstanceId() {
-        return instanceId;
+    public DriverUrl(String url) {
+        this.url = url;
     }
-
-    /**
-     * @param instanceId The instanceId to set.
-     */
-    public void setInstanceId(String instanceId) {
-        this.instanceId = instanceId;
+    
+    public String getUrl() {
+        return url;
     }
-
-    /**
-     * @return Returns the driverJson.
-     */
-    public String getDriverJson() {
-        return driverJson;
+    
+    public void setUrl(String url) {
+        this.url = url;
     }
-
-    /**
-     * @param driverJson The driverJson to set.
-     */
-    public void setDriverJson(String driverJson) {
-        this.driverJson = driverJson;
-    }
-
 }

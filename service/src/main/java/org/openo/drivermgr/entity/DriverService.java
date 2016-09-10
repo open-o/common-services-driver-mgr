@@ -17,76 +17,70 @@
 package org.openo.drivermgr.entity;
 
 /**
- * POJO For Driver Manager Service.
  * <br/>
+ * <p>
+ * </p>
  * 
  * @author
  * @version  
  */
-public class DriverServicesMapper {
-
-    private String instanceId;
+public class DriverService {
 
     private String serviceUrl;
 
-    private String type;
+    private String instanceId;
 
-    private String version;
+    private String extendInfo;
 
     /**
-     * @return Returns the instanceId.
+     * Constructor<br/>
+     * <p>
+     * </p>
+     * 
+     * @since  
      */
-    public String getInstanceId() {
-        return instanceId;
+    public DriverService() {
+        super();
     }
 
     /**
-     * @param instanceId The instanceId to set.
+     * Constructor<br/>
+     * <p>
+     * </p>
+     * 
+     * @param serviceUrl
+     * @param instanceId
+     * @param extendInfo
+     * @since  
      */
-    public void setInstanceId(String instanceId) {
+    public DriverService(String serviceUrl, String instanceId, String extendInfo) {
+        this.serviceUrl = serviceUrl;
         this.instanceId = instanceId;
+        this.extendInfo = extendInfo;
     }
 
-    /**
-     * @return Returns the serviceUrl.
-     */
     public String getServiceUrl() {
         return serviceUrl;
     }
 
-    /**
-     * @param serviceUrl The serviceUrl to set.
-     */
     public void setServiceUrl(String serviceUrl) {
         this.serviceUrl = serviceUrl;
     }
 
-    /**
-     * @return Returns the type.
-     */
-    public String getType() {
-        return type;
+    public String getInstanceId() {
+        return instanceId;
     }
 
-    /**
-     * @param type The type to set.
-     */
-    public void setType(String type) {
-        this.type = type;
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
     }
 
-    /**
-     * @return Returns the version.
-     */
-    public String getVersion() {
-        return version;
+    public String getExtendInfo() {
+        return extendInfo;
     }
 
-    /**
-     * @param version The version to set.
-     */
-    public void setVersion(String version) {
-        this.version = version;
+    public void setExtendInfo(String extendInfo) {
+        this.extendInfo = extendInfo;
     }
 
 }

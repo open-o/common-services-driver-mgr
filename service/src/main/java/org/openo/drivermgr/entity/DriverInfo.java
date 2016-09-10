@@ -18,8 +18,6 @@ package org.openo.drivermgr.entity;
 
 import java.util.List;
 
-import org.openo.drivermgr.common.CommonUtil;
-
 /**
  * POJO For Driver Manager Service.
  * <br/>
@@ -124,31 +122,4 @@ public class DriverInfo {
     public void setServices(List<Services> services) {
         this.services = services;
     }
-    
-
-    
-    /**
-     * 
-     * <br/>
-     * 
-     * @return
-     * @since   
-     */
-    public DriverInstance toDriverInstance() {
-        
-        DriverInstance driverInstance = new DriverInstance();
-        
-        driverInstance.setInstanceId(this.getInstanceID());
-        
-        driverInstance.setDriverName(this.getDriverName());
-        
-        String modelJson = CommonUtil.getInstance().driverInfoJson(this);
-        
-        driverInstance.setModel(modelJson);
-        
-        driverInstance.setExtendInfo("");
-        
-        return driverInstance;
-    }
-
 }

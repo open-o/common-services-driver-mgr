@@ -157,8 +157,7 @@
                 <configuration>
                     <forkMode>always</forkMode>
                     <argLine>${surefireArgLine}</argLine>
-                    <skip>${maven.test.skip}</skip>
-                    <testFailureIgnore>${maven.test.failure.ignore}</testFailureIgnore>
+                    <skip>false</skip>
                     <!-- Excludes integration tests when unit tests are run. -->
                     <excludes>
                         <exclude>**/IT*.java</exclude>

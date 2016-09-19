@@ -151,28 +151,28 @@ public class CommonUtil {
         return jsonInString;
     }
     
-	/**
-	 * DriverInfo is converted to DriverInstance
-	 * 
-	 * @param driverInfo
-	 *            driver info
-	 * @return DriverInstance
-	 */
-	public DriverInstance driverInfoToDriverInstance(DriverInfo driverInfo) {
+    /**
+     * DriverInfo is converted to DriverInstance
+     * 
+     * @param driverInfo
+     *            driver info
+     * @return DriverInstance
+     */
+    public DriverInstance driverInfoToDriverInstance(DriverInfo driverInfo) {
 
-		DriverInstance driverInstance = new DriverInstance();
+        DriverInstance driverInstance = new DriverInstance();
 
-		driverInstance.setInstanceId(driverInfo.getInstanceID());
+        driverInstance.setInstanceId(driverInfo.getInstanceID());
 
-		driverInstance.setDriverName(driverInfo.getDriverName());
+        driverInstance.setDriverName(driverInfo.getDriverName());
 
-		String modelJson = driverInfoJson(driverInfo);
+        String modelJson = driverInfoJson(driverInfo);
 
-		driverInstance.setModel(modelJson);
+        driverInstance.setModel(modelJson);
 
-		driverInstance.setExtendInfo("");
+        driverInstance.setExtendInfo("");
 
-		return driverInstance;
-	}
+        return driverInstance;
+    }
 
 }

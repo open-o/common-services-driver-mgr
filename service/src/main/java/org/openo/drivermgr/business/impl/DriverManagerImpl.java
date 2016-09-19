@@ -64,31 +64,31 @@ public class DriverManagerImpl implements IDriverManager {
         this.driverManagerDao = driverManagerDao;
     }
 
-	/**
-	 * <br/>
-	 * 
-	 * @param driver
-	 * @return
-	 * @since
-	 */
-	@Override
-	public boolean registerDriver(DriverProperties driver) {
+    /**
+     * <br/>
+     * 
+     * @param driver
+     * @return
+     * @since
+     */
+    @Override
+    public boolean registerDriver(DriverProperties driver) {
 
-		LOGGER.info("Register Driver");
+        LOGGER.info("Register Driver");
 
-		String instanceId = driver.getDriverInfo().getInstanceID();
+        String instanceId = driver.getDriverInfo().getInstanceID();
 
-		DriverInstance dirverInstance = CommonUtil.getInstance().driverInfoToDriverInstance(driver.getDriverInfo());
+        DriverInstance dirverInstance = CommonUtil.getInstance().driverInfoToDriverInstance(driver.getDriverInfo());
 
-		driverManagerDao.saveDriverInstance(dirverInstance);
+        driverManagerDao.saveDriverInstance(dirverInstance);
 
-		List<Services> services = driver.getDriverInfo().getServices();
+        List<Services> services = driver.getDriverInfo().getServices();
 
-		for (Services item : services) {
-			driverManagerDao.saveDriverService(new DriverService(item.getServiceUrl(), instanceId, ""));
-		}
-		return true;
-	}
+        for (Services item : services) {
+            driverManagerDao.saveDriverService(new DriverService(item.getServiceUrl(), instanceId, ""));
+        }
+        return true;
+    }
 
     /**
      * <br/>

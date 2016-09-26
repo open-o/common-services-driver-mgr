@@ -40,84 +40,132 @@ public class DriverInfo {
     private List<Services> services;
 
     /**
-     * @return Returns the driverName.
+     * the getter of the model attribute driverName.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public String getDriverName() {
         return driverName;
     }
 
     /**
-     * @param driverName The driverName to set.
+     * the setter of the model attribute driverName.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public void setDriverName(String driverName) {
         this.driverName = driverName;
     }
 
     /**
-     * @return Returns the instanceId.
+     * the getter of the model attribute instanceID.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public String getInstanceID() {
         return instanceID;
     }
 
     /**
-     * @param instanceId The instanceId to set.
+     * the setter of the model attribute instanceId.
+     * <br/> 
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public void setInstanceID(String instanceId) {
         this.instanceID = instanceId;
     }
 
     /**
-     * @return Returns the ip.
+     * the getter of the model attribute ip. 
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public String getIp() {
         return ip;
     }
 
     /**
-     * @param ip The ip to set.
+     * the setter of the model attribute ip.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public void setIp(String ip) {
         this.ip = ip;
     }
 
     /**
-     * @return Returns the port.
+     * the getter of the model attribute port.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public String getPort() {
         return port;
     }
 
     /**
-     * @param port The port to set.
+     * the setter of the model attribute port.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public void setPort(String port) {
         this.port = port;
     }
 
     /**
-     * @return Returns the protocol.
+     * the getter of the model attribute protocol.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public String getProtocol() {
         return protocol;
     }
 
     /**
-     * @param protocol The protocol to set.
+     * the setter of the model attribute protocol.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public void setProtocol(String protocol) {
         this.protocol = protocol;
     }
 
     /**
-     * @return Returns the services.
+     * the getter of the model attribute services.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public List<Services> getServices() {
         return services;
     }
 
     /**
-     * @param services The services to set.
+     * the setter of the model attribute services.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public void setServices(List<Services> services) {
         this.services = services;

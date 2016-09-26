@@ -70,7 +70,7 @@ public class ClientCommunication {
     }
     
     /**
-     * 
+     * get the extra system information from the id.
      * <br/>
      * 
      * @param id
@@ -82,7 +82,7 @@ public class ClientCommunication {
     }
     
     /**
-     * 
+     * initial the web client.
      * <br/>
      * 
      * @return
@@ -102,7 +102,7 @@ public class ClientCommunication {
     }
     
     /**
-     * 
+     * get the extsys info.
      * <br/>
      * 
      * @param id
@@ -137,7 +137,7 @@ public class ClientCommunication {
     }
     
     /**
-     * 
+     * get the extsys info form the local. 
      * <br/>
      * 
      * @param id

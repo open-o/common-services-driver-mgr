@@ -51,27 +51,37 @@ public class DriverManagerImpl implements IDriverManager {
     IDriverManagerDao driverManagerDao;
 
     /**
-     * @return Returns the driverManagerDao.
+     * the getter
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public IDriverManagerDao getDriverManagerDao() {
         return driverManagerDao;
     }
 
     /**
-     * @param driverManagerDao The driverManagerDao to set.
+     * the setter.
+     * <br/>
+     * 
+     * @param driverManagerDao
+     * @since  SDNO 0.5
      */
     public void setDriverManagerDao(IDriverManagerDao driverManagerDao) {
         this.driverManagerDao = driverManagerDao;
     }
 
     /**
+     * this is the implement method for the registerDriver.
+     * get the driver instance form the id. and then save the instance;
+     * for each service, will store it as the instanceid. 
      * <br/>
      * 
      * @param driver
      * @return
      * @since
      */
-    @Override
     public boolean registerDriver(DriverProperties driver) {
 
         LOGGER.info("Register Driver");
@@ -91,13 +101,13 @@ public class DriverManagerImpl implements IDriverManager {
     }
 
     /**
+     * unregister the driver. including the driverinstance and the driverservice.
      * <br/>
      * 
      * @param id
      * @return
      * @since  
      */
-    @Override
     public boolean unregisterDriver(String instanceId) {
 
         driverManagerDao.deleteDriverInstance(instanceId);
@@ -108,18 +118,24 @@ public class DriverManagerImpl implements IDriverManager {
     }
 
     /**
+     * get the driver info by the instanceid;
      * <br/>
      * 
      * @param instanceId
      * @return
      * @since  
      */
-    @Override
     public DriverInstance getDriverByInstanceId(String instanceId) {
         return driverManagerDao.getDriverByInstanceId(instanceId);
     }
 
     /**
+     * get the driver info by the service url, type , version;
+     * first get the driver info list by the url. 
+     * and then use the instaceid in the list. to find each service.
+     * for the service, match the first service which the type and version are matched. 
+     * then get the ip and port. return the full url to the client.
+     * 
      * <br/>
      * 
      * @param serviceUrl
@@ -128,7 +144,6 @@ public class DriverManagerImpl implements IDriverManager {
      * @return
      * @since  
      */
-    @Override
     public String getDriverInfo(String serviceUrl, String type, String version) {
         
         String matchUrl = getFirstTreePath(serviceUrl);
@@ -173,19 +188,18 @@ public class DriverManagerImpl implements IDriverManager {
     }
 
     /**
-     * 
+     * get all the driver info. return a list. 
      * <br/>
      * 
      * @return
-     * @since    
+     * @since   SDNO 0.5
      */
-    @Override
     public List<DriverInstance> getAllDriverInstance() {
         return driverManagerDao.getAllDriverInstance();
     }
 
     /**
-     * 
+     * get the first three url path of a origin url.
      * <br/>
      * 
      * @param serviceUrl

@@ -31,7 +31,7 @@ import org.openo.drivermgr.entity.DriverProperties;
 public interface IDriverManager {
 
     /**
-     * 
+     * the register driver interface.
      * <br/>
      * 
      * @param driver
@@ -41,7 +41,7 @@ public interface IDriverManager {
     boolean registerDriver(DriverProperties driver);
 
     /**
-     * 
+     * the unregister driver interface.
      * <br/>
      * 
      * @param id
@@ -51,7 +51,7 @@ public interface IDriverManager {
     boolean unregisterDriver(String id);
 
     /**
-     * 
+     * get the driver instace by the instaceid.
      * <br/>
      * 
      * @param instanceId
@@ -61,7 +61,7 @@ public interface IDriverManager {
     Object getDriverByInstanceId(String instanceId);
 
     /**
-     * 
+     * get the full url mathc the url,type, and version.
      * <br/>
      * 
      * @param serviceUrl
@@ -73,7 +73,7 @@ public interface IDriverManager {
     String getDriverInfo(String serviceUrl, String type, String version);
 
     /**
-     * 
+     * get all the driver info , and return a list.
      * <br/>
      * 
      * @return

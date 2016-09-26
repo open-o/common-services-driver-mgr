@@ -36,32 +36,44 @@ public class Services {
     private List<SupportSystem> supportSys;
 
     /**
-     * @return Returns the serviceUrl.
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public String getServiceUrl() {
         return serviceUrl;
     }
 
     /**
-     * 
+     * the setter of the model attribute.
      * <br/>
      * 
-     * @param serviceUrl
-     * @since   
+     * @return
+     * @since  SDNO 0.5
      */
     public void setServiceUrl(String serviceUrl) {
         this.serviceUrl = serviceUrl;
     }
 
     /**
-     * @return Returns the supportSys.
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public List<SupportSystem> getSupportSys() {
         return supportSys;
     }
 
     /**
-     * @param supportSys The supportSys to set.
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public void setSupportSys(List<SupportSystem> supportSys) {
         this.supportSys = supportSys;

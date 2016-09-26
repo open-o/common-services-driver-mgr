@@ -72,7 +72,7 @@ public class CommonUtil {
     }
 
     /**
-     * 
+     * this is method to get the driver info model from the request. 
      * <br/>
      * 
      * @param request
@@ -92,7 +92,7 @@ public class CommonUtil {
     }
     
     /**
-     * 
+     * this is the format method to get an ExtSysInfo from the inputstream.
      * <br/>
      * 
      * @param responseBody
@@ -111,7 +111,7 @@ public class CommonUtil {
     }
     
     /**
-     * 
+     * for the driverinfo from string to object.
      * <br/>
      * 
      * @param content

@@ -74,13 +74,13 @@ public class DriverMgrServiceImpl implements IDriverManagerDelegate {
     }
 
     /**
+     * Register the driver info to the db.
      * <br/>
      * 
      * @param request : HttpServletRequest Object
      * @param response : HttpServletResponse Object
      * @since  
      */
-    @Override
     public void register(HttpServletRequest request, HttpServletResponse response) {
 
         LOGGER.info("Going to Register Driver");
@@ -103,13 +103,13 @@ public class DriverMgrServiceImpl implements IDriverManagerDelegate {
     }
 
     /**
+     * unregister the driver info from the DB.
      * <br/>
      * 
      * @param request : HttpServletRequest Object
      * @param response : HttpServletResponse Object
      * @since  
      */
-    @Override
     public void unregister(HttpServletRequest request, HttpServletResponse response, String instanceId) {
 
         LOGGER.info("Going to UnRegister Driver");
@@ -127,6 +127,7 @@ public class DriverMgrServiceImpl implements IDriverManagerDelegate {
     }
 
     /**
+     * get the driver info from the driver managerment.
      * <br/>
      * 
      * @param request
@@ -139,7 +140,6 @@ public class DriverMgrServiceImpl implements IDriverManagerDelegate {
      * @throws JsonGenerationException
      * @since  
      */
-    @Override
     public String getDriverDetails(HttpServletRequest request, HttpServletResponse response, String serviceUrl,
             String systemId) {
         ObjectMapper mapper = new ObjectMapper();
@@ -163,6 +163,7 @@ public class DriverMgrServiceImpl implements IDriverManagerDelegate {
     }
 
     /**
+     * get the driver info from the driver managerment.
      * <br/>
      * 
      * @param request
@@ -192,6 +193,7 @@ public class DriverMgrServiceImpl implements IDriverManagerDelegate {
     }
 
     /**
+     *get the driver info from the driver managerment.
      * <br/>
      * 
      * @param request

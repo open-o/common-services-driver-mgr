@@ -34,56 +34,88 @@ public class DriverServicesMapper {
     private String version;
 
     /**
-     * @return Returns the instanceId.
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public String getInstanceId() {
         return instanceId;
     }
 
     /**
-     * @param instanceId The instanceId to set.
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public void setInstanceId(String instanceId) {
         this.instanceId = instanceId;
     }
 
     /**
-     * @return Returns the serviceUrl.
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public String getServiceUrl() {
         return serviceUrl;
     }
 
     /**
-     * @param serviceUrl The serviceUrl to set.
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public void setServiceUrl(String serviceUrl) {
         this.serviceUrl = serviceUrl;
     }
 
     /**
-     * @return Returns the type.
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public String getType() {
         return type;
     }
 
     /**
-     * @param type The type to set.
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public void setType(String type) {
         this.type = type;
     }
 
     /**
-     * @return Returns the version.
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public String getVersion() {
         return version;
     }
 
     /**
-     * @param version The version to set.
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public void setVersion(String version) {
         this.version = version;

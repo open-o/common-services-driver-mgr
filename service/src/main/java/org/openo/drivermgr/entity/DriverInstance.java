@@ -34,42 +34,90 @@ public class DriverInstance {
     
     private String extendInfo;
 
-    
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getInstanceId() {
         return instanceId;
     }
 
-    
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setInstanceId(String instanceId) {
         this.instanceId = instanceId;
     }
 
-    
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getDriverName() {
         return driverName;
     }
 
-    
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setDriverName(String driverName) {
         this.driverName = driverName;
     }
 
-    
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getModel() {
         return model;
     }
 
-    
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setModel(String model) {
         this.model = model;
     }
 
-    
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getExtendInfo() {
         return extendInfo;
     }
 
-    
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setExtendInfo(String extendInfo) {
         this.extendInfo = extendInfo;
     }

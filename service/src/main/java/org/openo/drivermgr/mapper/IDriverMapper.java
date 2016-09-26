@@ -35,7 +35,7 @@ import org.openo.drivermgr.entity.DriverServicesMapper;
 public interface IDriverMapper {
 
     /**
-     * 
+     * mybaties mapper for saveDriverJson
      * <br/>
      * 
      * @param driver
@@ -45,7 +45,7 @@ public interface IDriverMapper {
     boolean saveDriverJson(DriverJsonMapper driver);
 
     /**
-     * 
+     * mybaties mapper for saveDriverServices
      * <br/>
      * 
      * @param driver
@@ -55,7 +55,7 @@ public interface IDriverMapper {
     boolean saveDriverServices(List<DriverServicesMapper> driver);
 
     /**
-     * 
+     * mybaties mapper for deleteDriverJson
      * <br/>
      * 
      * @param instanceId
@@ -65,7 +65,7 @@ public interface IDriverMapper {
     boolean deleteDriverJson(String instanceId);
 
     /**
-     * 
+     * mybaties mapper for deleteDriverServices
      * <br/>
      * 
      * @param instanceId
@@ -75,7 +75,7 @@ public interface IDriverMapper {
     boolean deleteDriverServices(String instanceId);
 
     /**
-     * 
+     * mybaties mapper for getDetails
      * <br/>
      * 
      * @return
@@ -84,7 +84,7 @@ public interface IDriverMapper {
     Set<DriverProperties> getDetails();
 
     /**
-     * 
+     * mybaties mapper for getDetails
      * <br/>
      * 
      * @param id
@@ -94,7 +94,7 @@ public interface IDriverMapper {
     DriverProperties getDetails(String id);
 
     /**
-     * 
+     * mybaties mapper for saveDriverInstance
      * <br/>
      * 
      * @param dirverInstance
@@ -103,7 +103,7 @@ public interface IDriverMapper {
     void saveDriverInstance(DriverInstance dirverInstance);
 
     /**
-     * 
+     * mybaties mapper for saveDriverService
      * <br/>
      * 
      * @param driverService
@@ -112,7 +112,7 @@ public interface IDriverMapper {
     void saveDriverService(DriverService driverService);
 
     /**
-     * 
+     * mybaties mapper for deleteDriverInstance
      * <br/>
      * 
      * @param instanceId
@@ -121,7 +121,7 @@ public interface IDriverMapper {
     void deleteDriverInstance(String instanceId);
 
     /**
-     * 
+     * mybaties mapper for deleteDriverService
      * <br/>
      * 
      * @param instanceId
@@ -130,7 +130,7 @@ public interface IDriverMapper {
     void deleteDriverService(String instanceId);
 
     /**
-     * 
+     * mybaties mapper for getDriverInstance
      * <br/>
      * 
      * @param instanceId
@@ -140,7 +140,7 @@ public interface IDriverMapper {
     DriverInstance getDriverInstance(String instanceId);
 
     /**
-     * 
+     * mybaties mapper for getDriverServiceByUrl
      * <br/>
      * 
      * @param serviceUrl
@@ -150,7 +150,7 @@ public interface IDriverMapper {
     List<DriverService> getDriverServiceByUrl(String serviceUrl);
 
     /**
-     * 
+     * mybaties mapper for getAllDriverInstance
      * <br/>
      * 
      * @return

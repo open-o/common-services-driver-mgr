@@ -55,13 +55,12 @@ public class DriverManagerDaoImpl implements IDriverManagerDao {
     }
 
     /**
-     * 
+     * saving the driver instance object to the DB using the mybaties.
      * <br/>
      * 
      * @param dirverInstance
      * @since    
      */
-    @Override
     public void saveDriverInstance(DriverInstance dirverInstance) {
         SqlSession session = sqlSessionFactory.openSession();
         try {
@@ -76,13 +75,12 @@ public class DriverManagerDaoImpl implements IDriverManagerDao {
     }
     
     /**
-     * 
+     * saving the driver service object to the DB using the mybaties.
      * <br/>
      * 
      * @param driverService
      * @since    
      */
-    @Override
     public void saveDriverService(DriverService driverService) {
         SqlSession session = sqlSessionFactory.openSession();
         try {
@@ -97,13 +95,12 @@ public class DriverManagerDaoImpl implements IDriverManagerDao {
     }
     
     /**
-     * 
+     * delete the driver instance object from the DB 
      * <br/>
      * 
      * @param instanceId
      * @since    
      */
-    @Override
     public void deleteDriverInstance(String instanceId) {
         SqlSession session = sqlSessionFactory.openSession();
         try {
@@ -118,13 +115,12 @@ public class DriverManagerDaoImpl implements IDriverManagerDao {
     }
 
     /**
-     * 
+     * delete the driver service by instanceid .
      * <br/>
      * 
      * @param instanceId
      * @since    
      */
-    @Override
     public void deleteDriverService(String instanceId) {
         SqlSession session = sqlSessionFactory.openSession();
         try {
@@ -139,14 +135,13 @@ public class DriverManagerDaoImpl implements IDriverManagerDao {
     }
     
     /**
-     * 
+     * get the driver instance object by the instanceId.
      * <br/>
      * 
      * @param instanceId
      * @return
      * @since    
      */
-    @Override 
     public DriverInstance getDriverByInstanceId(String instanceId) {
         SqlSession session = sqlSessionFactory.openSession();
         DriverInstance driverInstance = null; 
@@ -163,14 +158,13 @@ public class DriverManagerDaoImpl implements IDriverManagerDao {
     }
  
     /**
-     * 
+     * get the driver service object by the serviceUrl
      * <br/>
      * 
      * @param url
      * @return
      * @since    
      */
-    @Override
     public List<DriverService> getDriverServiceByUrl(String serviceUrl) {
         SqlSession session = sqlSessionFactory.openSession();
         List<DriverService> drivers = null; 
@@ -187,13 +181,12 @@ public class DriverManagerDaoImpl implements IDriverManagerDao {
     }
     
     /**
-     * 
+     * get all driver instance.
      * <br/>
      * 
      * @return
      * @since    
      */
-    @Override
     public List<DriverInstance> getAllDriverInstance() {
         SqlSession session = sqlSessionFactory.openSession();
         List<DriverInstance> drivers = null; 

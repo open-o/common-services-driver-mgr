@@ -48,6 +48,7 @@ public class DriverMgrService {
     IDriverManagerDelegate driverDelegate;
 
     /**
+     * the getter .
      * <br/>
      * 
      * @return
@@ -58,6 +59,7 @@ public class DriverMgrService {
     }
 
     /**
+     * the setter .
      * <br/>
      * 
      * @param driverDelegate
@@ -68,6 +70,7 @@ public class DriverMgrService {
     }
 
     /**
+     * Register the driver info to the db. 
      * <br/>
      * 
      * @param request
@@ -81,6 +84,7 @@ public class DriverMgrService {
     }
 
     /**
+     * unregister the driver info from the DB.
      * <br/>
      * 
      * @param request
@@ -96,6 +100,7 @@ public class DriverMgrService {
     }
 
     /**
+     * get the driver info from the driver managerment.
      * <br/>
      * 
      * @param request

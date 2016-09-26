@@ -26,7 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 
+ * The check parameter class.
  * <br/>
  * <p>
  * </p>
@@ -41,7 +41,7 @@ public class CheckDriverParameter {
     private static CheckDriverParameter instance = new CheckDriverParameter();
 
     /**
-     * 
+     * the Constructor
      * Constructor<br/>
      * <p>
      * </p>
@@ -53,7 +53,7 @@ public class CheckDriverParameter {
     }
     
     /**
-     * 
+     * return a singleton.
      * <br/>
      * 
      * @return
@@ -64,7 +64,7 @@ public class CheckDriverParameter {
     }
     
     /**
-     * 
+     * check the parameter for the driver info.
      * <br/>
      * 
      * @param driver
@@ -76,7 +76,8 @@ public class CheckDriverParameter {
     }
 
     /**
-     * 
+     * check the port of the driver is not empty.
+     * if not , throw exception.
      * <br/>
      * 
      * @param port
@@ -91,7 +92,8 @@ public class CheckDriverParameter {
     }
 
     /**
-     * 
+     * check the IP is not empty.
+     * if not , throw exception.
      * <br/>
      * 
      * @param ip

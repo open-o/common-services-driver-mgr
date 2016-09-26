@@ -59,26 +59,68 @@ public class DriverService {
         this.extendInfo = extendInfo;
     }
 
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getServiceUrl() {
         return serviceUrl;
     }
 
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setServiceUrl(String serviceUrl) {
         this.serviceUrl = serviceUrl;
     }
 
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getInstanceId() {
         return instanceId;
     }
 
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setInstanceId(String instanceId) {
         this.instanceId = instanceId;
     }
 
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getExtendInfo() {
         return extendInfo;
     }
 
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setExtendInfo(String extendInfo) {
         this.extendInfo = extendInfo;
     }

@@ -30,7 +30,7 @@ import javax.servlet.http.HttpServletResponse;
 public interface IDriverManagerDelegate {
 
     /**
-     * 
+     * register the driver info to the driver management.
      * <br/>
      * 
      * @param request
@@ -40,7 +40,7 @@ public interface IDriverManagerDelegate {
     void register(HttpServletRequest request, HttpServletResponse response);
 
     /**
-     * 
+     * unregister the driver info from the driver management.
      * <br/>
      * 
      * @param request
@@ -51,7 +51,7 @@ public interface IDriverManagerDelegate {
     void unregister(HttpServletRequest request, HttpServletResponse response, String instanceId);
 
     /**
-     * 
+     * get the driver info from the management.
      * <br/>
      * 
      * @param request

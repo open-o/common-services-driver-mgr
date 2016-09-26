@@ -31,7 +31,7 @@ import org.openo.drivermgr.entity.DriverService;
 public interface IDriverManagerDao {
 
     /**
-     * 
+     * saving the driver instance object to the DB using the mybaties.
      * <br/>
      * 
      * @param dirverInstance
@@ -40,7 +40,7 @@ public interface IDriverManagerDao {
     void saveDriverInstance(DriverInstance dirverInstance);
 
     /**
-     * 
+     * saving the driver service object to the DB using the mybaties.
      * <br/>
      * 
      * @param driverService
@@ -49,7 +49,7 @@ public interface IDriverManagerDao {
     void saveDriverService(DriverService driverService);
 
     /**
-     * 
+     * delete the driver instance object from the DB 
      * <br/>
      * 
      * @param instanceId
@@ -58,7 +58,7 @@ public interface IDriverManagerDao {
     void deleteDriverInstance(String instanceId);
 
     /**
-     * 
+     * delete the driver service by instanceid 
      * <br/>
      * 
      * @param instanceId
@@ -67,7 +67,7 @@ public interface IDriverManagerDao {
     void deleteDriverService(String instanceId);
 
     /**
-     * 
+     * get the driver instance object by the instanceId.
      * <br/>
      * 
      * @param instanceId
@@ -77,7 +77,7 @@ public interface IDriverManagerDao {
     DriverInstance getDriverByInstanceId(String instanceId);
 
     /**
-     * 
+     * get the driver service object by the serviceUrl
      * <br/>
      * 
      * @param serviceUrl
@@ -87,7 +87,7 @@ public interface IDriverManagerDao {
     List<DriverService> getDriverServiceByUrl(String serviceUrl);
 
     /**
-     * 
+     * get all driver instance.
      * <br/>
      * 
      * @return

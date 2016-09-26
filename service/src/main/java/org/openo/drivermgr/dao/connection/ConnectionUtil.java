@@ -40,7 +40,7 @@ public class ConnectionUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(ConnectionUtil.class);
     
     /**
-     * 
+     * Get the DB session for the myBaties.	
      * Constructor<br/>
      * <p>
      * </p>

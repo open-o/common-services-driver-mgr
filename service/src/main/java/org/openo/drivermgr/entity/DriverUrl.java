@@ -42,10 +42,24 @@ public class DriverUrl {
         this.url = url;
     }
     
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getUrl() {
         return url;
     }
     
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setUrl(String url) {
         this.url = url;
     }

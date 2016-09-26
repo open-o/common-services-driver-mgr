@@ -28,22 +28,22 @@ public class DriverProperties {
     private DriverInfo driverInfo;
 
     /**
-     * 
+     * the getter of the model attribute.
      * <br/>
      * 
      * @return
-     * @since   
+     * @since  SDNO 0.5
      */
     public DriverInfo getDriverInfo() {
         return driverInfo;
     }
 
     /**
-     * 
+     * the setter of the model attribute.
      * <br/>
      * 
-     * @param driverInfo
-     * @since   
+     * @return
+     * @since  SDNO 0.5
      */
     public void setDriverInfo(DriverInfo driverInfo) {
         this.driverInfo = driverInfo;

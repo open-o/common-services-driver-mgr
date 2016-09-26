@@ -43,81 +43,178 @@ public class ExtSysInfo {
 
     private String createTime;
     
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getInstanceId() {
         return instanceId;
     }
 
-    
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setInstanceId(String instanceId) {
         this.instanceId = instanceId;
     }
 
-    
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getCategory() {
         return category;
     }
 
-    
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setCategory(String category) {
         this.category = category;
     }
 
-    
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getName() {
         return name;
     }
 
-    
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setName(String name) {
         this.name = name;
     }
 
-    
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getDescription() {
         return description;
     }
 
-    
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
-    
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getVersion() {
         return version;
     }
 
-    
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setVersion(String version) {
         this.version = version;
     }
 
-    
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getVendor() {
         return vendor;
     }
 
-    
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setVendor(String vendor) {
         this.vendor = vendor;
     }
 
-    
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getType() {
         return type;
     }
 
-    
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setType(String type) {
         this.type = type;
     }
 
-    
+    /**
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public String getCreateTime() {
         return createTime;
     }
 
-    
+    /**
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
+     */
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }

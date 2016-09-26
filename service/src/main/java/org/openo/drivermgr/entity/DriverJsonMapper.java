@@ -31,28 +31,44 @@ public class DriverJsonMapper {
     private String driverJson;
 
     /**
-     * @return Returns the instanceId.
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public String getInstanceId() {
         return instanceId;
     }
 
     /**
-     * @param instanceId The instanceId to set.
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public void setInstanceId(String instanceId) {
         this.instanceId = instanceId;
     }
 
     /**
-     * @return Returns the driverJson.
+     * the getter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public String getDriverJson() {
         return driverJson;
     }
 
     /**
-     * @param driverJson The driverJson to set.
+     * the setter of the model attribute.
+     * <br/>
+     * 
+     * @return
+     * @since  SDNO 0.5
      */
     public void setDriverJson(String driverJson) {
         this.driverJson = driverJson;

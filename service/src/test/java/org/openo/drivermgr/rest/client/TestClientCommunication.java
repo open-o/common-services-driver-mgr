@@ -36,7 +36,7 @@ public class TestClientCommunication {
     @Test
     public void testgetExtSysInfoFromZTE() {
         try {
-            impl.getExtSysInfoFromZTE("id");
+            impl.getExtSysInfoFromESR("id");
         } catch(Exception e) {
             Assert.assertEquals("HTTP 415 Unsupported Media Type", e.getMessage());
         }

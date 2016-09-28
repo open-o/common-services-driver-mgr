@@ -146,10 +146,12 @@ public class DriverManagerImpl implements IDriverManager {
      */
     public String getDriverInfo(String serviceUrl, String type, String version) {
         
-        String matchUrl = getFirstTreePath(serviceUrl);
+        //String matchUrl = getFirstTreePath(serviceUrl);
+        
+		LOGGER.info("Service URL " + serviceUrl + " ,type " + type + " , version" + version);
 
-        List<DriverService> drivers = driverManagerDao.getDriverServiceByUrl(matchUrl);
-
+        List<DriverService> drivers = driverManagerDao.getDriverServiceByUrl(serviceUrl);
+        
         DriverInfo goalDriverInfo = null;
 
         for(DriverService driver : drivers) {

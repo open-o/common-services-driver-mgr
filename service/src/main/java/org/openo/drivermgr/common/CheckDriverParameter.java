@@ -87,7 +87,7 @@ public class CheckDriverParameter {
         if(StringUtils.isBlank(port)) {
             LOGGER.error("The port is illeagl");
             throw new DriverManagerException(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE,
-                    ErrorCode.INVALIDAT_PARAMETERS);
+                    ErrorCode.INVALID_PARAMETERS);
         }
     }
 
@@ -103,7 +103,7 @@ public class CheckDriverParameter {
         if(StringUtils.isBlank(ip)) {
             LOGGER.error("The ip is illeagl");
             throw new DriverManagerException(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE,
-                    ErrorCode.INVALIDAT_PARAMETERS);
+                    ErrorCode.INVALID_PARAMETERS);
         }
     }
     

@@ -116,7 +116,7 @@ public class DriverMgrServiceImpl implements IDriverManagerDelegate {
 
         if(driverManager.getDriverByInstanceId(instanceId) == null) {
             throw new DriverManagerException(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE,
-                    ErrorCode.INVALIDAT_PARAMETERS);
+                    ErrorCode.INVALID_PARAMETERS);
         }
 
         if(driverManager.unregisterDriver(instanceId)) {
@@ -149,7 +149,7 @@ public class DriverMgrServiceImpl implements IDriverManagerDelegate {
             } else {
                 if(StringUtils.isBlank(systemId)) {
                     throw new DriverManagerException(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE,
-                            ErrorCode.INVALIDAT_PARAMETERS);
+                            ErrorCode.INVALID_PARAMETERS);
                 }
 
                 String driverUrl = getDriverDetail(request, response, serviceUrl, getSystemID(systemId));
@@ -182,13 +182,16 @@ public class DriverMgrServiceImpl implements IDriverManagerDelegate {
         String type = extSysInfo.getType();
         String version = extSysInfo.getVersion();
 
+        LOGGER.info("Information from ESR + Name =" + extSysInfo.getName() + ", Type=" + type
+		+ " , Version = " + version);
+        
         String path = driverManager.getDriverInfo(serviceUrl, type, version);
         if(StringUtils.isNotEmpty(path)) {
             return path;
         } else {
             LOGGER.error("No match driver info is found.");
             throw new DriverManagerException(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE,
-                    ErrorCode.INVALIDAT_PARAMETERS);
+                    ErrorCode.INVALID_PARAMETERS);
         }
     }
 
@@ -223,11 +226,11 @@ public class DriverMgrServiceImpl implements IDriverManagerDelegate {
             }
         } else {
             throw new DriverManagerException(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE,
-                    ErrorCode.INVALIDAT_PARAMETERS);
+                    ErrorCode.INVALID_PARAMETERS);
         }
         if(!StringUtils.isNotBlank(sysID)) {
             throw new DriverManagerException(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE,
-                    ErrorCode.INVALIDAT_PARAMETERS);
+                    ErrorCode.INVALID_PARAMETERS);
         }
         return sysID;
     }

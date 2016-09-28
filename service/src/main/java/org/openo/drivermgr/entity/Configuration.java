@@ -14,30 +14,34 @@
  * limitations under the License.
  */
 
-package org.openo.drivermgr.constant;
+package org.openo.drivermgr.entity;
 
 /**
- * <p>
- * This class which defines all the error codes for the DriverManager
- * </p>
- * <br/>
+ * A POJO class <br/>
  * 
  * @author
- * @version  
+ * @version
  */
+public class Configuration {
 
-public final class ErrorCode {
+	private String ipAddr;
 
-    public static final String FAILURE_INFORMATION = "failure_information";
+	private String port;
 
-    public static final String COMMUNICATION_ERROR = "communication_error";
+	public String getIpAddr() {
+		return ipAddr;
+	}
 
-    public static final String DRIVER_LOAD_FAILED = "driver_load_failed";
-    
-    public static final String INVALID_PARAMETERS = "invalid_parameters";
-    
-    public static final String DUPLICATE_ID = "duplicate_instanceid";
+	public void setIpAddr(String ipAddr) {
+		this.ipAddr = ipAddr;
+	}
 
-    private ErrorCode() {
-    }
+	public String getPort() {
+		return port;
+	}
+
+	public void setPort(String port) {
+		this.port = port;
+	}
+
 }

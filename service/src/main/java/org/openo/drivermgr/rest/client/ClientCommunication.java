@@ -26,6 +26,7 @@ import javax.ws.rs.core.Response;
 import org.apache.cxf.jaxrs.client.WebClient;
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 import org.openo.drivermgr.common.CommonUtil;
+import org.openo.drivermgr.common.ConfigUtil;
 import org.openo.drivermgr.constant.Constant;
 import org.openo.drivermgr.constant.ErrorCode;
 import org.openo.drivermgr.entity.ExtSysInfo;
@@ -78,7 +79,7 @@ public class ClientCommunication {
      * @since   
      */
     public ExtSysInfo getExtSysInfo(String id) {
-        return getExtSysInfoFromLocal(id);
+        return getExtSysInfoFromESR(id);
     }
     
     /**
@@ -98,7 +99,7 @@ public class ClientCommunication {
 
         LOGGER.info("Connecting Client ...");
 
-        return WebClient.create("http://msb.openo.org:80", providers);
+        return WebClient.create(ConfigUtil.createBaseURL(), providers);
     }
     
     /**
@@ -109,7 +110,7 @@ public class ClientCommunication {
      * @return
      * @since   
      */
-    public ExtSysInfo getExtSysInfoFromZTE(String id) {
+    public ExtSysInfo getExtSysInfoFromESR(String id) {
       WebClient client = initializeClient();
       Response userResponse = null;
       
@@ -124,7 +125,7 @@ public class ClientCommunication {
           try {
               userResponse = client.get();
           } catch(Exception e) {
-              LOGGER.error("Exception Caught while connecting client ... " + e);
+              LOGGER.error("Exception Caught while connecting client ... " , e);
               throw new DriverManagerException(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE, ErrorCode.COMMUNICATION_ERROR);
           }
       } else {
@@ -136,20 +137,4 @@ public class ClientCommunication {
       return CommonUtil.getInstance().getExtSysInfo(responseBody);
     }
     
-    /**
-     * get the extsys info form the local. 
-     * <br/>
-     * 
-     * @param id
-     * @return
-     * @since   
-     */
-    public static ExtSysInfo getExtSysInfoFromLocal(String id) {
-        // test code.
-        ExtSysInfo ext = new ExtSysInfo();
-        String[] typeVersion = id.split(",");
-        ext.setType(typeVersion[0]);
-        ext.setVersion(typeVersion[1]);
-        return ext;
-    }
 }

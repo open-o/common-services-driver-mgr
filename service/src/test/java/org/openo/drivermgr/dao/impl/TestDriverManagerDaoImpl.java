@@ -21,6 +21,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openo.drivermgr.entity.DriverInstance;
 import org.openo.drivermgr.entity.DriverService;
+import org.openo.drivermgr.exception.DriverManagerException;
 
 import junit.framework.Assert;
 
@@ -49,7 +50,11 @@ public class TestDriverManagerDaoImpl {
     public void testsaveDriverInstanceException() {
         impl = new DriverManagerDaoImpl();
         DriverInstance dirverInstance = new DriverInstance();
-        impl.saveDriverInstance(dirverInstance );
+        try {
+            impl.saveDriverInstance(dirverInstance );
+        } catch(DriverManagerException e) {
+            Assert.assertEquals("HTTP 500 Internal Server Error", e.getMessage());
+        }
     }
     
     @Test
@@ -109,7 +114,11 @@ public class TestDriverManagerDaoImpl {
     public void testgetDriverByInstanceIdException() {
         String instanceId = "instanceId";
         impl = new DriverManagerDaoImpl();
-        impl.getDriverByInstanceId(instanceId);
+        try {
+            impl.getDriverByInstanceId(instanceId);
+        } catch(DriverManagerException e) {
+            Assert.assertEquals("HTTP 500 Internal Server Error", e.getLocalizedMessage());
+        }
     }
     
     @Test

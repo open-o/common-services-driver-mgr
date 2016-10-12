@@ -36,6 +36,8 @@ public final class ErrorCode {
     
     public static final String INVALID_PARAMETERS = "invalid_parameters";
     
+    public static final String INVALID_DB = "invalid_database";
+    
     public static final String DUPLICATE_ID = "duplicate_instanceid";
 
     private ErrorCode() {

@@ -18,13 +18,17 @@ package org.openo.drivermgr.dao.impl;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.ibatis.exceptions.PersistenceException;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.openo.drivermgr.constant.ErrorCode;
 import org.openo.drivermgr.dao.connection.ConnectionUtil;
 import org.openo.drivermgr.dao.inf.IDriverManagerDao;
 import org.openo.drivermgr.entity.DriverInstance;
 import org.openo.drivermgr.entity.DriverService;
+import org.openo.drivermgr.exception.DriverManagerException;
 import org.openo.drivermgr.mapper.IDriverMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -68,7 +72,9 @@ public class DriverManagerDaoImpl implements IDriverManagerDao {
             mapper.saveDriverInstance(dirverInstance);
             session.commit();
         } catch(PersistenceException e) {
-            LOGGER.error("Exception caught" + e);
+            LOGGER.error("Exception caught {}", e);
+            throw new DriverManagerException(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+                    ErrorCode.INVALID_DB);
         } finally {
             session.close();
         }
@@ -88,7 +94,9 @@ public class DriverManagerDaoImpl implements IDriverManagerDao {
             mapper.saveDriverService(driverService);
             session.commit();
         } catch(PersistenceException e) {
-            LOGGER.error("Exception caught" + e);
+            LOGGER.error("Exception caught {}", e);
+            throw new DriverManagerException(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+                    ErrorCode.INVALID_DB);
         } finally {
             session.close();
         }
@@ -108,7 +116,9 @@ public class DriverManagerDaoImpl implements IDriverManagerDao {
             mapper.deleteDriverInstance(instanceId);
             session.commit();
         } catch(PersistenceException e) {
-            LOGGER.error("Exception caught" + e);
+            LOGGER.error("Exception caught {}", e);
+            throw new DriverManagerException(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+                    ErrorCode.INVALID_DB);
         } finally {
             session.close();
         }
@@ -128,7 +138,9 @@ public class DriverManagerDaoImpl implements IDriverManagerDao {
             mapper.deleteDriverService(instanceId);
             session.commit();
         } catch(PersistenceException e) {
-            LOGGER.error("Exception caught" + e);
+            LOGGER.error("Exception caught {}", e);
+            throw new DriverManagerException(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+                    ErrorCode.INVALID_DB);
         } finally {
             session.close();
         }
@@ -150,7 +162,9 @@ public class DriverManagerDaoImpl implements IDriverManagerDao {
             driverInstance = mapper.getDriverInstance(instanceId);
             session.commit();
         } catch(PersistenceException e) {
-            LOGGER.error("Exception caught" + e);
+            LOGGER.error("Exception caught {}", e);
+            throw new DriverManagerException(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+                    ErrorCode.INVALID_DB);
         } finally {
             session.close();
         }
@@ -173,7 +187,9 @@ public class DriverManagerDaoImpl implements IDriverManagerDao {
             drivers = mapper.getDriverServiceByUrl(serviceUrl);
             session.commit();
         } catch(PersistenceException e) {
-            LOGGER.error("Exception caught" + e);
+            LOGGER.error("Exception caught {}", e);
+            throw new DriverManagerException(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+                    ErrorCode.INVALID_DB);
         } finally {
             session.close();
         }
@@ -195,7 +211,9 @@ public class DriverManagerDaoImpl implements IDriverManagerDao {
             drivers = mapper.getAllDriverInstance();
             session.commit();
         } catch(PersistenceException e) {
-            LOGGER.error("Exception caught" + e);
+            LOGGER.error("Exception caught {}", e);
+            throw new DriverManagerException(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+                    ErrorCode.INVALID_DB);
         } finally {
             session.close();
         }

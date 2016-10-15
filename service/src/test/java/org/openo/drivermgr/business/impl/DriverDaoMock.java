@@ -31,13 +31,13 @@ import mockit.Mock;
 import mockit.MockUp;
 
 public class DriverDaoMock {
-    
+
     private static DriverInstance driverInstance = new DriverInstance();
 
     private static List<DriverService> driverServiceList = new ArrayList<DriverService>();
 
-    static List<DriverInstance> driverInstanceLIst = new ArrayList<DriverInstance>();
-    
+    private static List<DriverInstance> driverInstanceLIst = new ArrayList<DriverInstance>();
+
     public static List<DriverInstance> getDriverInstanceLIst() {
         return driverInstanceLIst;
     }
@@ -45,67 +45,67 @@ public class DriverDaoMock {
     private static DriverService driverService = new DriverService();
 
     static DriverInfo driverInfo = new DriverInfo();
-    
+
     public static DriverInstance getDriverInstance() {
         return driverInstance;
     }
 
     public static DriverManagerDaoImpl mockDriverManagerDaoImpl() {
-        
+
         return new MockUp<DriverManagerDaoImpl>() {
-            
+
             @Mock
             public void saveDriverInstance(DriverInstance dirverInstance) {
                 return;
             }
-            
+
             @Mock
             public void saveDriverService(DriverService driverService) {
                 return;
             }
-            
+
             @Mock
             public void deleteDriverInstance(String instanceId) {
                 return;
             }
-            
+
             @Mock
             public void deleteDriverService(String instanceId) {
                 return;
             }
-            
+
             @Mock
             public List<DriverInstance> getAllDriverInstance() {
                 return driverInstanceLIst;
             }
-            
+
             @Mock
             public DriverInstance getDriverByInstanceId(String instanceId) {
-                
+
                 SupportSystem supportsys = new SupportSystem();
                 supportsys.setType("type");
                 supportsys.setVersion("version");
-                
+
                 List<SupportSystem> supportSys = new ArrayList<SupportSystem>();
                 supportSys.add(supportsys);
-                
+
                 Services service = new Services();
                 service.setServiceUrl("url");
                 service.setSupportSys(supportSys);
-                
+
                 List<Services> services = new ArrayList<Services>();
                 services.add(service);
-                
+
                 driverInfo.setInstanceID("instanceID");
                 driverInfo.setServices(services);
                 driverInfo.setIp("ip");
                 driverInfo.setPort("port");
                 driverInfo.setProtocol("http");
-                
+
                 driverInstance.setModel(CommonUtil.getInstance().driverInfoJson(driverInfo));
                 return driverInstance;
             }
-            
+
             @Mock
             public List<DriverService> getDriverServiceByUrl(String serviceUrl) {
                 driverService.setInstanceId("instanceId");

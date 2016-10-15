@@ -183,7 +183,7 @@ public class DriverMgrServiceImpl implements IDriverManagerDelegate {
         String version = extSysInfo.getVersion();
 
         LOGGER.info("Information from ESR + Name =" + extSysInfo.getName() + ", Type=" + type
-		+ " , Version = " + version);
+        + " , Version = " + version);
         
         String path = driverManager.getDriverInfo(serviceUrl, type, version);
         if(StringUtils.isNotEmpty(path)) {

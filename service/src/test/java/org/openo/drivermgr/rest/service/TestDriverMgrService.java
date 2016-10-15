@@ -23,29 +23,31 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openo.drivermgr.entity.DriverUrl;
+import org.openo.drivermgr.exception.DriverManagerException;
 import org.openo.drivermgr.service.inf.IDriverManagerDelegate;
 import org.openo.drivermgr.ut.common.CommonMock;
 
-import junit.framework.Assert;
+
 
 public class TestDriverMgrService {
 
-    DriverMgrService impl;
+    private DriverMgrService impl;
 
-    IDriverManagerDelegate driverDelegate;
+    private IDriverManagerDelegate driverDelegate;
 
-    HttpServletRequest request;
+    private HttpServletRequest request;
 
-    HttpServletResponse response;
+    private HttpServletResponse response;
 
-    String instanceId;
+    private String instanceId;
 
-    String serviceUrl;
+    private String serviceUrl;
 
-    String systemId;
+    private String systemId;
 
     ObjectMapper mapper = new ObjectMapper();
 
@@ -67,53 +69,51 @@ public class TestDriverMgrService {
     }
 
     @Test
-    public void testsetDriverDelegate() {
+    public void testSetDriverDelegate() {
         impl.setDriverDelegate(driverDelegate);
         Assert.assertEquals(driverDelegate, impl.getDriverDelegate());
     }
 
     @Test
-    public void testregister() {
-        DriverServiceMockInstance.mockDriverMgrServiceImpl();
-        impl.register(request, response);
+    public void testRegister() {
+        boolean status = false;
+        try {
+            DriverServiceMockInstance.mockDriverMgrServiceImpl();
+            impl.register(request, response);
+        } catch (DriverManagerException ex) {
+            status = true;
+        }
+        Assert.assertFalse(status);
     }
 
     @Test
-    public void testunregister() {
-        DriverServiceMockInstance.mockDriverMgrServiceImpl();
-        impl.unregister(request, response, instanceId);
+    public void testUnregister() {
+        boolean status = false;
+        try {
+            DriverServiceMockInstance.mockDriverMgrServiceImpl();
+            impl.unregister(request, response, instanceId);
+        } catch (DriverManagerException ex) {
+            status = true;
+        }
+        Assert.assertFalse(status);
     }
 
     @Test
-    public void testgetDriverDetails() {
+    public void testGetDriverDetails() {
         try {
             DriverServiceMockInstance.mockDriverMgrServiceImpl();
             Assert.assertEquals(new DriverUrl("special_one").getUrl(),
                     impl.getDriverDetails(request, response, serviceUrl, systemId));
-        } catch(IOException e) {
-            e.printStackTrace();
+        } catch (IOException e) {
         }
     }
 
-//    @Test
-//    public void testgetDriverDetailsAll() {
-//        try {
-//            DriverServiceMockInstance.mockDriverMgrServiceImpl();
-//            Assert.assertEquals(mapper.writeValueAsString(DriverServiceMockInstance.getDriverInfoList()),
-//                    impl.getDriverDetails(request, response, null, null));
-//        } catch(IOException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-//
-//    }
-    
     @Test
-    public void testgetDriverDetailsException() {
+    public void testGetDriverDetailsException() {
         try {
             DriverServiceMockInstance.mockDriverMgrServiceImpl();
-            impl.getDriverDetails(request, response, "", null);
-        } catch(Exception e) {
+            Assert.assertEquals(impl.getDriverDetails(request, response, "", null), "special_one");
+        } catch (Exception e) {
             Assert.assertEquals("HTTP 415 Unsupported Media Type", e.getMessage());
         }
 

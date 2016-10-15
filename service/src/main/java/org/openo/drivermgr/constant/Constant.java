@@ -27,12 +27,12 @@ package org.openo.drivermgr.constant;
  */
 public final class Constant {
 
-	public static final String DRIVER_MGR_PROPERTIES = "driver_manager.properties";
-	
-	public static final String DRIVER_MGR_IP = "IP";
-	
-	public static final String DRIVER_MGR_PORT = "PORT";
-	
+    public static final String DRIVER_MGR_PROPERTIES = "driver_manager.properties";
+    
+    public static final String DRIVER_MGR_IP = "IP";
+    
+    public static final String DRIVER_MGR_PORT = "PORT";
+    
     public static final String TYPE_POST = "POST";
 
     public static final String TYPE_DELETE = "DELETE";

@@ -30,13 +30,13 @@ import mockit.Mock;
 import mockit.MockUp;
 
 public class MapperMock {
-    
-    static DriverInstance driverInstance = new DriverInstance();
 
-    static List<DriverService> driverServiceList = new ArrayList<DriverService>();
-    
-    static List<DriverInstance> driverInstanceList = new ArrayList<DriverInstance>();
-    
+    private static DriverInstance driverInstance = new DriverInstance();
+
+    private static List<DriverService> driverServiceList = new ArrayList<DriverService>();
+
+    private static List<DriverInstance> driverInstanceList = new ArrayList<DriverInstance>();
+
     public List<DriverInstance> getDriverInstanceList() {
         return driverInstanceList;
     }
@@ -94,17 +94,17 @@ public class MapperMock {
                                     public void deleteDriverService(String instanceId) {
                                         return;
                                     }
-                                    
+
                                     @Mock
-                                    public DriverInstance getDriverInstance(String instanceId){
-                                        return driverInstance ;
+                                    public DriverInstance getDriverInstance(String instanceId) {
+                                        return driverInstance;
                                     }
-                                    
+
                                     @Mock
-                                    public  List<DriverService> getDriverServiceByUrl(String serviceUrl) {
+                                    public List<DriverService> getDriverServiceByUrl(String serviceUrl) {
                                         return driverServiceList;
                                     }
-                                    
+
                                     @Mock
                                     public List<DriverInstance> getAllDriverInstance() {
                                         return driverInstanceList;

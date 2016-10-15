@@ -24,24 +24,24 @@ package org.openo.drivermgr.entity;
  */
 public class Configuration {
 
-	private String ipAddr;
+    private String ipAddr;
 
-	private String port;
+    private String port;
 
-	public String getIpAddr() {
-		return ipAddr;
-	}
+    public String getIpAddr() {
+        return ipAddr;
+    }
 
-	public void setIpAddr(String ipAddr) {
-		this.ipAddr = ipAddr;
-	}
+    public void setIpAddr(String ipAddr) {
+        this.ipAddr = ipAddr;
+    }
 
-	public String getPort() {
-		return port;
-	}
+    public String getPort() {
+        return port;
+    }
 
-	public void setPort(String port) {
-		this.port = port;
-	}
+    public void setPort(String port) {
+        this.port = port;
+    }
 
 }

@@ -148,7 +148,7 @@ public class DriverManagerImpl implements IDriverManager {
         
         String matchUrl = getFirstTreePath(serviceUrl);
         
-		LOGGER.info("Service URL " + serviceUrl + " ,type " + type + " , version" + version);
+        LOGGER.info("Service URL " + serviceUrl + " ,type " + type + " , version" + version);
 
         List<DriverService> drivers = driverManagerDao.getDriverServiceByUrl(matchUrl);
         

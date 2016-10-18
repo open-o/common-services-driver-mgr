@@ -17,16 +17,16 @@
 package org.openo.drivermgr.common;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openo.drivermgr.entity.DriverInfo;
 
-import junit.framework.Assert;
 
 public class TestCheckDriverParameter {
-    
-    CheckDriverParameter impl;
-    
+
+    private CheckDriverParameter impl;
+
     @Before
     public void setUp() throws Exception {
         impl = CheckDriverParameter.getInstance();
@@ -35,25 +35,25 @@ public class TestCheckDriverParameter {
     @After
     public void tearDown() throws Exception {
     }
-    
+
     @Test
     public void testIPNull() {
         DriverInfo dirver = new DriverInfo();
         dirver.setPort("port");
         try {
             impl.checkParameter(dirver);
-        } catch(Exception e) {
+        } catch (Exception e) {
             Assert.assertEquals("HTTP 415 Unsupported Media Type", e.getMessage());
         }
     }
-    
+
     @Test
     public void testPortNull() {
         DriverInfo dirver = new DriverInfo();
         dirver.setIp("ip");
         try {
             impl.checkParameter(dirver);
-        } catch(Exception e) {
+        } catch (Exception e) {
             Assert.assertEquals("HTTP 415 Unsupported Media Type", e.getMessage());
         }
     }

@@ -31,14 +31,13 @@ import mockit.Mock;
 import mockit.MockUp;
 
 public class ServiceImplMock {
-    
-    static DriverProperties driverProperties = new DriverProperties();
-    
-    static DriverInstance driverInstance = new DriverInstance();
-    
-    static List<DriverInstance> driverInstancelIst = new ArrayList<DriverInstance>();
-    
-    
+
+    private static DriverProperties driverProperties = new DriverProperties();
+
+    private static DriverInstance driverInstance = new DriverInstance();
+
+    private static List<DriverInstance> driverInstancelIst = new ArrayList<DriverInstance>();
+
     public static List<DriverInstance> getDriverInstancelIst() {
         return driverInstancelIst;
     }
@@ -53,28 +52,28 @@ public class ServiceImplMock {
             public DriverInstance getDriverByInstanceId(String instanceId) {
                 return null;
             }
-            
+
             @Mock
             public boolean registerDriver(DriverProperties driver) {
                 return true;
             }
         }.getMockInstance();
     }
-    
+
     public static DriverManagerImpl mockDriverManagerImplNullFalse() {
         return new MockUp<DriverManagerImpl>() {
             @Mock
             public DriverInstance getDriverByInstanceId(String instanceId) {
                 return null;
             }
-            
+
             @Mock
             public boolean registerDriver(DriverProperties driver) {
                 return false;
             }
         }.getMockInstance();
     }
-    
+
     public static DriverManagerImpl mockDriverManagerImpl() {
         DriverInfo driverInfo = new DriverInfo();
         driverInstance.setInstanceId("instanceId");
@@ -82,29 +81,29 @@ public class ServiceImplMock {
         driverInstancelIst.add(driverInstance);
         driverInstancelIst.add(driverInstance);
         return new MockUp<DriverManagerImpl>() {
-            @Mock 
+            @Mock
             public DriverInstance getDriverByInstanceId(String instanceId) {
                 return driverInstance;
             }
-            
+
             @Mock
-            public boolean unregisterDriver(String instanceId) { 
+            public boolean unregisterDriver(String instanceId) {
                 return true;
             }
-            
+
             @Mock
             public String getDriverInfo(String serviceUrl, String type, String version) {
                 return "driverInfo";
             }
-            
+
             @Mock
             public List<DriverInstance> getAllDriverInstance() {
                 return driverInstancelIst;
             }
-            
+
         }.getMockInstance();
     }
-    
+
     public static DriverManagerImpl mockDriverManagerImplFalse() {
         DriverInfo driverInfo = new DriverInfo();
         driverInstance.setInstanceId("instanceId");
@@ -112,26 +111,26 @@ public class ServiceImplMock {
         driverInstancelIst.add(driverInstance);
         driverInstancelIst.add(driverInstance);
         return new MockUp<DriverManagerImpl>() {
-            @Mock 
+            @Mock
             public DriverInstance getDriverByInstanceId(String instanceId) {
                 return driverInstance;
             }
-            
+
             @Mock
-            public boolean unregisterDriver(String instanceId) { 
+            public boolean unregisterDriver(String instanceId) {
                 return false;
             }
-            
+
             @Mock
             public String getDriverInfo(String serviceUrl, String type, String version) {
                 return "driverInfo";
             }
-            
+
             @Mock
             public List<DriverInstance> getAllDriverInstance() {
                 return driverInstancelIst;
             }
-            
+
         }.getMockInstance();
     }
 
@@ -141,13 +140,13 @@ public class ServiceImplMock {
         driverInfo.setIp("ip");
         driverInfo.setPort("port");
         driverProperties.setDriverInfo(driverInfo);
-        
+
         new MockUp<CommonUtil>() {
             @Mock
             public DriverProperties getDriverInfo(HttpServletRequest request) {
                 return driverProperties;
             }
         };
-        
+
     }
 }

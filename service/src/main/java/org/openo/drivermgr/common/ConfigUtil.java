@@ -46,65 +46,65 @@ import org.slf4j.LoggerFactory;
  */
 public class ConfigUtil {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ConfigUtil.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConfigUtil.class);
 
-	/**
-	 * Constructor<br/>
-	 * <p>
-	 * </p>
-	 * 
-	 * @since
-	 */
-	private ConfigUtil() {
-	}
+    /**
+     * Constructor<br/>
+     * <p>
+     * </p>
+     * 
+     * @since
+     */
+    private ConfigUtil() {
+    }
 
-	/**
-	 * This api loads the service configuration for the driver manager service. <br/>
-	 * 
-	 * @return conf : Instance of <tt> Configuration </tt> class, which holds
-	 *         the configuration values provided by user in the
-	 *         <tt> auth_service.properties </tt>/
-	 * @since
-	 */
-	private static Configuration loadConfigProperties() {
+    /**
+     * This api loads the service configuration for the driver manager service. <br/>
+     * 
+     * @return conf : Instance of <tt> Configuration </tt> class, which holds
+     *         the configuration values provided by user in the
+     *         <tt> auth_service.properties </tt>/
+     * @since
+     */
+    private static Configuration loadConfigProperties() {
 
-		Configuration conf = new Configuration();
+        Configuration conf = new Configuration();
 
-		LOGGER.info("Loading... " + Constant.DRIVER_MGR_PROPERTIES);
+        LOGGER.info("Loading... " + Constant.DRIVER_MGR_PROPERTIES);
 
-		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
-		Properties properties = new Properties();
+        Properties properties = new Properties();
 
-		try {
+        try {
 
-			properties.load(classLoader.getResourceAsStream(Constant.DRIVER_MGR_PROPERTIES));
+            properties.load(classLoader.getResourceAsStream(Constant.DRIVER_MGR_PROPERTIES));
 
-		} catch (IOException e) {
+        } catch (IOException e) {
 
-			LOGGER.error("Exception Caught : " + e);
-			throw new DriverManagerException(HttpServletResponse.SC_BAD_REQUEST, ErrorCode.DRIVER_LOAD_FAILED);
+            LOGGER.error("Exception Caught : " + e);
+            throw new DriverManagerException(HttpServletResponse.SC_BAD_REQUEST, ErrorCode.DRIVER_LOAD_FAILED);
 
-		}
+        }
 
-		conf.setIpAddr(properties.getProperty(Constant.DRIVER_MGR_IP));
+        conf.setIpAddr(properties.getProperty(Constant.DRIVER_MGR_IP));
 
-		conf.setPort(properties.getProperty(Constant.DRIVER_MGR_PORT));
+        conf.setPort(properties.getProperty(Constant.DRIVER_MGR_PORT));
 
-		return conf;
-	}
+        return conf;
+    }
 
-	public static String createBaseURL() {
-		
-		Configuration config = loadConfigProperties();
+    public static String createBaseURL() {
+        
+        Configuration config = loadConfigProperties();
 
-		String ip = config.getIpAddr();
+        String ip = config.getIpAddr();
 
-		String port = config.getPort();
+        String port = config.getPort();
 
-		LOGGER.info("ip = " + ip + " port = " + port);
-		
-		return "http://" + ip + ":" + port;
-	}
+        LOGGER.info("ip = " + ip + " port = " + port);
+        
+        return "http://" + ip + ":" + port;
+    }
 
 }

@@ -30,11 +30,11 @@ import org.openo.drivermgr.entity.Services;
 import org.openo.drivermgr.entity.SupportSystem;
 
 public class TestDriverManagerImpl {
-    
-    DriverManagerImpl impl;
-    
-    IDriverManagerDao driverManagerDao;
-    
+
+    private DriverManagerImpl impl;
+
+    private IDriverManagerDao driverManagerDao;
+
     @Before
     public void setUp() throws Exception {
         impl = new DriverManagerImpl();
@@ -43,115 +43,115 @@ public class TestDriverManagerImpl {
 
     @After
     public void tearDown() throws Exception {
-        
+
     }
-    
+
     @Test
-    public void testgetDriverManagerDao() {
+    public void testGetDriverManagerDao() {
         impl.setDriverManagerDao(driverManagerDao);
         Assert.assertEquals(driverManagerDao, impl.getDriverManagerDao());
     }
-    
+
     @Test
-    public void testregisterDriver() {
-        
-        driverManagerDao = DriverDaoMock.mockDriverManagerDaoImpl();
-        impl.setDriverManagerDao(driverManagerDao);
-        
-        SupportSystem supportsys = new SupportSystem();
-        supportsys.setType("type");
-        supportsys.setVersion("version");
-        
-        List<SupportSystem> supportSys = new ArrayList<SupportSystem>();
-        supportSys.add(supportsys);
-        
-        Services service = new Services();
-        service.setServiceUrl("url");
-        service.setSupportSys(supportSys);
-        
-        List<Services> services = new ArrayList<Services>();
-        services.add(service);
-        
-        DriverInfo driverInfo = new DriverInfo();
-        driverInfo.setInstanceID("instanceID");
-        driverInfo.setServices(services);
-        
-        DriverProperties driver = new DriverProperties();
-        driver.setDriverInfo(driverInfo);
-        
-        Assert.assertEquals(true, impl.registerDriver(driver));
-        
-    }
-    
-    @Test
-    public void testunregisterDriver() {
-        
-        driverManagerDao = DriverDaoMock.mockDriverManagerDaoImpl();
-        impl.setDriverManagerDao(driverManagerDao);
-        
-        Assert.assertEquals(true, impl.unregisterDriver("instanceId"));
-    }
-    
-    @Test
-    public void testgetDriverByInstanceId() {
+    public void testRegisterDriver() {
 
         driverManagerDao = DriverDaoMock.mockDriverManagerDaoImpl();
         impl.setDriverManagerDao(driverManagerDao);
-        
+
+        SupportSystem supportsys = new SupportSystem();
+        supportsys.setType("type");
+        supportsys.setVersion("version");
+
+        List<SupportSystem> supportSys = new ArrayList<SupportSystem>();
+        supportSys.add(supportsys);
+
+        Services service = new Services();
+        service.setServiceUrl("url");
+        service.setSupportSys(supportSys);
+
+        List<Services> services = new ArrayList<Services>();
+        services.add(service);
+
+        DriverInfo driverInfo = new DriverInfo();
+        driverInfo.setInstanceID("instanceID");
+        driverInfo.setServices(services);
+
+        DriverProperties driver = new DriverProperties();
+        driver.setDriverInfo(driverInfo);
+
+        Assert.assertEquals(true, impl.registerDriver(driver));
+
+    }
+
+    @Test
+    public void testUnregisterDriver() {
+
+        driverManagerDao = DriverDaoMock.mockDriverManagerDaoImpl();
+        impl.setDriverManagerDao(driverManagerDao);
+
+        Assert.assertEquals(true, impl.unregisterDriver("instanceId"));
+    }
+
+    @Test
+    public void testGetDriverByInstanceId() {
+
+        driverManagerDao = DriverDaoMock.mockDriverManagerDaoImpl();
+        impl.setDriverManagerDao(driverManagerDao);
+
         Assert.assertEquals(DriverDaoMock.getDriverInstance(), impl.getDriverByInstanceId("instanceId"));
     }
-    
+
     @Test
-    public void testgetDriverInfo() {
-        
+    public void testGetDriverInfo() {
+
         driverManagerDao = DriverDaoMock.mockDriverManagerDaoImpl();
         impl.setDriverManagerDao(driverManagerDao);
         String url = "/openoapi/test/v1/test1";
         String fullUrl = "http://ip:port" + url;
-        
+
         Assert.assertEquals(fullUrl, impl.getDriverInfo(url, "type", "version"));
     }
 
     @Test
-    public void testgetDriverInfoNoBeginThree() {
-        
+    public void testGetDriverInfoNoBeginThree() {
+
         driverManagerDao = DriverDaoMock.mockDriverManagerDaoImpl();
         impl.setDriverManagerDao(driverManagerDao);
         String url = "openoapi/test/v1/test1";
         String fullUrl = "http://ip:port" + url;
-        
+
         Assert.assertEquals(fullUrl, impl.getDriverInfo(url, "type", "version"));
     }
-    
+
     @Test
-    public void testgetDriverInfoTwoOne() {
-        
+    public void testGetDriverInfoTwoOne() {
+
         driverManagerDao = DriverDaoMock.mockDriverManagerDaoImpl();
         impl.setDriverManagerDao(driverManagerDao);
         String url = "/openoapi/test";
         String fullUrl = "http://ip:port" + url;
-        
+
         Assert.assertEquals(fullUrl, impl.getDriverInfo(url, "type", "version"));
     }
-    
+
     @Test
-    public void testgetDriverInfoNoBeginTwoUrl() {
-        
+    public void testGetDriverInfoNoBeginTwoUrl() {
+
         driverManagerDao = DriverDaoMock.mockDriverManagerDaoImpl();
         impl.setDriverManagerDao(driverManagerDao);
         String url = "openoapi/test";
         String fullUrl = "http://ip:port" + url;
-        
+
         Assert.assertEquals(fullUrl, impl.getDriverInfo(url, "type", "version"));
     }
-    
+
     @Test
-    public void testgetAllDriverInstance() {
+    public void testGetAllDriverInstance() {
 
         driverManagerDao = DriverDaoMock.mockDriverManagerDaoImpl();
         impl.setDriverManagerDao(driverManagerDao);
-        
+
         Assert.assertEquals(DriverDaoMock.getDriverInstanceLIst(), impl.getAllDriverInstance());
     }
-    
+
 }

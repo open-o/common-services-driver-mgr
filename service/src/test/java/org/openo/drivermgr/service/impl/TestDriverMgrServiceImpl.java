@@ -20,23 +20,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openo.drivermgr.business.inf.IDriverManager;
 import org.openo.drivermgr.ut.common.CommonMock;
 
-import junit.framework.Assert;
 import mockit.Deencapsulation;
 
 public class TestDriverMgrServiceImpl {
 
-    IDriverManager driverManager;
+    private IDriverManager driverManager;
 
-    DriverMgrServiceImpl impl;
+    private DriverMgrServiceImpl impl;
 
-    HttpServletRequest request;
+    private HttpServletRequest request;
 
-    HttpServletResponse response;
+    private HttpServletResponse response;
 
     @Before
     public void setUp() throws Exception {
@@ -50,97 +50,106 @@ public class TestDriverMgrServiceImpl {
     }
 
     @Test
-    public void testgetDriverManager() {
+    public void testGetDriverManager() {
         impl.setDriverManager(driverManager);
         Assert.assertEquals(driverManager, impl.getDriverManager());
     }
 
     @Test
-    public void testregister() {
+    public void testRegister() {
+        boolean status = false;
         ServiceImplMock.mockgetDriverInfo();
         try {
             driverManager = ServiceImplMock.mockDriverManagerImplNull();
             impl.setDriverManager(driverManager);
             impl.register(request, response);
-        } catch(Exception e) {
+        } catch (Exception e) {
+            status = true;
         }
+        Assert.assertFalse(status);
     }
 
     @Test
-    public void testregisterException1() {
+    public void testRegisterExceptionUnsupportedMedia() {
         ServiceImplMock.mockgetDriverInfo();
         try {
             driverManager = ServiceImplMock.mockDriverManagerImpl();
             impl.setDriverManager(driverManager);
             impl.register(request, response);
-        } catch(Exception e) {
+        } catch (Exception e) {
             Assert.assertEquals("HTTP 415 Unsupported Media Type", e.getMessage());
         }
     }
 
     @Test
-    public void testregisterException2() {
+    public void testRegisterExceptionForbidden() {
         ServiceImplMock.mockgetDriverInfo();
         try {
             driverManager = ServiceImplMock.mockDriverManagerImplNullFalse();
             impl.setDriverManager(driverManager);
             impl.register(request, response);
-        } catch(Exception e) {
+        } catch (Exception e) {
             Assert.assertEquals("HTTP 403 Forbidden", e.getMessage());
         }
     }
 
     @Test
-    public void testunregister() {
+    public void testUnregister() {
+        boolean status = false;
         try {
             driverManager = ServiceImplMock.mockDriverManagerImpl();
             impl.setDriverManager(driverManager);
             impl.unregister(request, response, "instanceId");
-        } catch(Exception e) {
+        } catch (Exception e) {
+            status = true;
         }
+        Assert.assertFalse(status);
     }
 
     @Test
-    public void testunregisterException1() {
+    public void testUnregisterExceptionForbidden() {
         try {
             driverManager = ServiceImplMock.mockDriverManagerImplFalse();
             impl.setDriverManager(driverManager);
             impl.unregister(request, response, "instanceId");
-        } catch(Exception e) {
+        } catch (Exception e) {
             Assert.assertEquals("HTTP 403 Forbidden", e.getMessage());
         }
     }
 
     @Test
-    public void testunregisterException2() {
+    public void testUnregisterException() {
+        boolean status = false;
         try {
             driverManager = ServiceImplMock.mockDriverManagerImplFalse();
             impl.setDriverManager(driverManager);
             impl.unregister(request, response, "instanceId");
-        } catch(Exception e) {
+        } catch (Exception e) {
+            status = true;
         }
+        Assert.assertTrue(status);
     }
 
     @Test
-    public void testgetDriverDetails() {
+    public void testGetDriverDetails() {
         ServiceImplMock.mockgetDriverInfo();
         try {
             driverManager = ServiceImplMock.mockDriverManagerImpl();
             impl.setDriverManager(driverManager);
             Assert.assertEquals("driverInfo", impl.getDriverDetails(request, response, "serviceUrl", "type,version"));
             ;
-        } catch(Exception e) {
+        } catch (Exception e) {
         }
     }
 
     @Test
-    public void testgetAllDriverInfo() {
+    public void testGetAllDriverInfo() {
         ServiceImplMock.mockgetDriverInfo();
         try {
             driverManager = ServiceImplMock.mockDriverManagerImpl();
             impl.setDriverManager(driverManager);
             Assert.assertNotNull(Deencapsulation.invoke(impl, "getDriverDetails", request, response));
-        } catch(Exception e) {
+        } catch (Exception e) {
         }
     }
 

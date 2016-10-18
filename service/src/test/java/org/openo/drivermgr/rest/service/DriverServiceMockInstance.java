@@ -32,19 +32,19 @@ import mockit.Mock;
 import mockit.MockUp;
 
 public class DriverServiceMockInstance {
-    
+
     private static DriverInfo dirverInfo = new DriverInfo();
-    
+
     private static List<DriverInfo> driverInfoList = new ArrayList<DriverInfo>();
-    
+
     public static DriverInfo getDirverInfo() {
         return dirverInfo;
     }
-    
+
     public static List<DriverInfo> getDriverInfoList() {
         return driverInfoList;
     }
-    
+
     public static IDriverManagerDelegate mockDriverMgrServiceImpl() {
 
         return new MockUp<DriverMgrServiceImpl>() {
@@ -53,24 +53,24 @@ public class DriverServiceMockInstance {
             public void register(HttpServletRequest request, HttpServletResponse response) {
                 return;
             }
-            
+
             @Mock
             public void unregister(@Context HttpServletRequest request, @Context HttpServletResponse response,
                     @PathParam("instanceid") String instanceId) {
                 return;
             }
-            
+
             @Mock
             private String getDriverDetail(HttpServletRequest request, HttpServletResponse response, String serviceUrl,
                     String systemId) {
                 return "special_one";
             }
-            
+
             @Mock
             private List<DriverInfo> getDriverDetails(HttpServletRequest request, HttpServletResponse response) {
                 return driverInfoList;
             }
-            
+
             @Mock
             public String getDriverDetails(HttpServletRequest request, HttpServletResponse response, String serviceUrl,
                     String systemId) {

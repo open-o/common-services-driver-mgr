@@ -204,17 +204,23 @@ public class DriverMgrServiceImpl implements IDriverManagerDelegate {
      * @return
      * @since  
      */
-    private List<DriverInfo> getDriverDetails(HttpServletRequest request, HttpServletResponse response) {
+	private List<DriverInfo> getDriverDetails(HttpServletRequest request, HttpServletResponse response) {
 
-        List<DriverInstance> driverInstances = driverManager.getAllDriverInstance();
-        List<DriverInfo> driverInfos = new ArrayList<DriverInfo>();
+		List<DriverInstance> driverInstances = driverManager.getAllDriverInstance();
+		
+		List<DriverInfo> driverInfos = new ArrayList<DriverInfo>();
 
-        for(DriverInstance driverInstance : driverInstances) {
-            driverInfos.add(CommonUtil.getInstance().getDriverInfo(driverInstance.getModel()));
-        }
+		if (null != driverInstances) {
+			for (DriverInstance driverInstance : driverInstances) {
+				driverInfos.add(CommonUtil.getInstance().getDriverInfo(driverInstance.getModel()));
+			}
+		} else {
+			throw new DriverManagerException(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
+					ErrorCode.DRIVER_LOAD_FAILED);
+		}
 
-        return driverInfos;
-    }
+		return driverInfos;
+	}
 
     private String getSystemID(String systemID) {
 

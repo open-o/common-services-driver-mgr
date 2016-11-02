@@ -37,11 +37,11 @@ import org.springframework.beans.factory.annotation.Autowired;
  * <br/>
  * <p>
  * </p>
- * 
+ *
  * @author
- * @version  
+ * @version
  */
-@Path("/")
+@Path("/drivermgr/v1/drivers")
 public class DriverMgrService {
 
     @Autowired
@@ -50,9 +50,9 @@ public class DriverMgrService {
     /**
      * the getter .
      * <br/>
-     * 
+     *
      * @return
-     * @since  
+     * @since
      */
     public IDriverManagerDelegate getDriverDelegate() {
         return driverDelegate;
@@ -61,21 +61,21 @@ public class DriverMgrService {
     /**
      * the setter .
      * <br/>
-     * 
+     *
      * @param driverDelegate
-     * @since  
+     * @since
      */
     public void setDriverDelegate(IDriverManagerDelegate driverDelegate) {
         this.driverDelegate = driverDelegate;
     }
 
     /**
-     * Register the driver info to the db. 
+     * Register the driver info to the db.
      * <br/>
-     * 
+     *
      * @param request
      * @param response
-     * @since  
+     * @since
      */
     @POST
     @Consumes({"application/json"})
@@ -86,11 +86,11 @@ public class DriverMgrService {
     /**
      * unregister the driver info from the DB.
      * <br/>
-     * 
+     *
      * @param request
      * @param response
      * @param instanceId
-     * @since  
+     * @since
      */
     @DELETE
     @Path("/{instanceid}")
@@ -102,14 +102,14 @@ public class DriverMgrService {
     /**
      * get the driver info from the driver managerment.
      * <br/>
-     * 
+     *
      * @param request
      * @param response
      * @param serviceUrl
      * @param systemId
      * @return
      * @throws IOException
-     * @since  
+     * @since
      */
     @GET
     @Produces("application/json")

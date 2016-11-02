@@ -1,0 +1,193 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Driver Manager API.",
+        "description": "DriverMgr provides Driver registration and query capabilities. It is based on MicroserviceBus and is not visible to SDN-O or NFV-O. SDN-O or NFV-O send requests to MicroserviceBus, which then obtains usable drivers from DriverMgr. DriverMgr finds usable drivers and returns this information to MicroserviceBus. Finally, MicroserviceBus sends the SDN-O or NFV-O requests to the specific driver.",
+        "version": "1.0.0"
+    },
+    "host": "sdno.openo.org",
+    "schemes": [
+        "https",
+        "http"
+    ],
+    "basePath": "/openoapi/drivermgr/v1",
+    "paths": {
+        "/drivers": {
+            "get": {
+                "summary": "get list of drivers registered with driver manager.",
+                "description": "Retrieves list of drivers registered with driver manager.",
+                "operationId": "getDrivers",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "X-Driver-Parameter",
+                        "description": "extSysID stored in Header.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "service url",
+                        "description": "the service needed by upper layer business.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "list of registered drivers.",
+                        "schema": {
+                            "$ref": "#/definitions/driverInfo"
+                        }
+                    },
+                    "405": {
+                        "description": "Invalid parameters,duplicate instance ID."
+                    },
+                    "500": {
+                        "description": "driver filed to register with driver manager due to internal server error."
+                    }
+                }
+            },
+            "post": {
+                "summary": "Register drivers to the driver manager.",
+                "description": "Register drivers to the driver manager.",
+                "operationId": "registerDriver",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "driverInfo",
+                        "description": "Provide required properties of Driver.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/driverInfo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Driver registered with the drivert manager. To find the registered drivers, use GET request of drivers.'"
+                    },
+                    "405": {
+                        "description": "Invalid parameters,duplicate instance ID."
+                    },
+                    "500": {
+                        "description": "driver filed to register with driver manager due to internal server error."
+                    }
+                }
+            }
+        },
+        "/drivers/{instanceid}": {
+            "delete": {
+                "summary": "Unregister driver from the DriverMgr",
+                "description": "Unregister the given driver instance from the driver manager.",
+                "operationId": "unregisterDriver",
+                "parameters": [
+                    {
+                        "name": "instanceid",
+                        "in": "path",
+                        "description": "Driver instance ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Driver unregistered successfully."
+                    },
+                    "405": {
+                        "description": "Invalid parameters,duplicate instance ID."
+                    },
+                    "500": {
+                        "description": "driver filed to register with driver manager due to internal server error."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "driverInfo": {
+            "type": "object",
+            "description": "driver manager registration information.",
+            "required": [
+                "driverName",
+                "instanceID",
+                "ip",
+                "port",
+                "protocol",
+                "services"
+            ],
+            "properties": {
+                "driverName": {
+                    "type": "string",
+                    "description": "Driver Name"
+                },
+                "instanceID": {
+                    "type": "string",
+                    "description": "Instance ID."
+                },
+                "ip": {
+                    "type": "string",
+                    "description": "the IP of the driver server"
+                },
+                "port": {
+                    "type": "string",
+                    "description": "the port of the driver server."
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "supported protocols."
+                },
+                "services": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/services"
+                    }
+                }
+            }
+        },
+        "services": {
+            "type": "object",
+            "description": "the array of services provided by all of the drivers.",
+            "required": [
+                "service_url",
+                "support_sys"
+            ],
+            "properties": {
+                "service_url": {
+                    "type": "string",
+                    "description": "The REST service URL provided by driver."
+                },
+                "support_sys": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/support_sys"
+                    }
+                }
+            }
+        },
+        "support_sys": {
+            "type": "object",
+            "description": "the specific business service provided by driver",
+            "required": [
+                "type",
+                "version"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "the external system type"
+                },
+                "version": {
+                    "type": "string",
+                    "description": "the external system version"
+                }
+            }
+        }
+    }
+}

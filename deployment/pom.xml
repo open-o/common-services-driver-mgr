@@ -19,7 +19,7 @@
     <parent>
         <groupId>org.openo.common-services.driver-mgr</groupId>
         <artifactId>drivermanager-service-root</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>drivermanager-service-deployment</artifactId>

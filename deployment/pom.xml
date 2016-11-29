@@ -23,7 +23,7 @@
     </parent>
 
     <artifactId>drivermanager-service-deployment</artifactId>
-    <name>DriverManagerDeployment</name>
+    <name>common-services-driver-mgr/deployment</name>
     <packaging>pom</packaging>
 
     <properties>

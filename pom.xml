@@ -26,7 +26,7 @@
     <artifactId>drivermanager-service-root</artifactId>
     <version>1.1.0-SNAPSHOT</version>
 
-    <name>DriverManagerServiceRoot</name>
+    <name>common-services-driver-mgr</name>
     <packaging>pom</packaging>
 
     <properties>

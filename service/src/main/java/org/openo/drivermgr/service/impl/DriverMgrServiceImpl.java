@@ -120,7 +120,7 @@ public class DriverMgrServiceImpl implements IDriverManagerDelegate {
         }
 
         if(driverManager.unregisterDriver(instanceId)) {
-            response.setStatus(HttpServletResponse.SC_CREATED);
+            response.setStatus(HttpServletResponse.SC_NO_CONTENT);
         } else {
             throw new DriverManagerException(HttpServletResponse.SC_FORBIDDEN, ErrorCode.FAILURE_INFORMATION);
         }
